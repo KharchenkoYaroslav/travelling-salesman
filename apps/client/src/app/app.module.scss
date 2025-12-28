@@ -1,39 +1,50 @@
-// app.module.scss
 .app {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 1rem;
-  font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
   min-height: 100vh;
+  width: 100%;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
 }
 
 .main-content {
   display: flex;
-  flex-wrap: wrap;
+  height: calc(100vh - 2rem);
+  width: 100%;
   justify-content: center;
-  gap: 2rem;
-  margin-bottom: 2rem;
+  align-items: stretch;
+  gap: 1rem;
 }
 
 .controls-panel {
+  width: 300px;
+  min-width: 300px;
   background: #fff;
   border-radius: 0.75rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   padding: 1.5rem;
-  width: 300px;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
 
   h2 {
+    margin-top: 0;
     margin-bottom: 1rem;
     font-size: 1.25rem;
     color: #333;
+    flex-shrink: 0;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
   }
 
   .form-group {
     margin-bottom: 1rem;
+    flex-shrink: 0;
 
     label {
       display: flex;
@@ -56,6 +67,9 @@
     display: flex;
     justify-content: space-between;
     gap: 0.5rem;
+    margin-top: auto;
+    padding-top: 1rem;
+    flex-shrink: 0;
 
     button {
       flex: 1;
@@ -80,18 +94,56 @@
   }
 }
 
+.city-map-container {
+  flex: 1;
+  background: #fff;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+
+  .city-map {
+    width: 100%;
+    flex: 1;
+    min-height: 0;
+    border: 2px solid #007bff;
+    border-radius: 0.5rem;
+    background: #f8fafd;
+    cursor: crosshair;
+    transition: border-color 0.2s;
+    display: block;
+
+    &:hover {
+      border-color: #0056b3;
+    }
+  }
+
+  .map-controls {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    font-size: 1rem;
+    color: #555;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    flex-shrink: 0;
+  }
+}
+
 .results-viewer {
   width: 100%;
-  max-width: 1000px;
+  margin-top: 2rem;
   background: #fff;
   border-radius: 0.75rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   padding: 1.5rem;
-  margin-bottom: 2rem;
-
   h2 {
     font-size: 1.25rem;
     margin-bottom: 1rem;
+    margin-top: 0;
   }
 
   .generation-info {
@@ -119,10 +171,6 @@
       &:disabled {
         background-color: #ccc;
         cursor: not-allowed;
-      }
-
-      &:hover:not(:disabled) {
-        background-color: #218838;
       }
     }
 
@@ -163,45 +211,6 @@
         }
       }
     }
-  }
-}
-
-.city-map-container {
-  background: #fff;
-  border-radius: 0.75rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 800px;
-  max-width: 100%;
-
-  .city-map {
-    border: 2px solid #007bff;
-    border-radius: 0.5rem;
-    background: #f8fafd;
-    margin-bottom: 1rem;
-    width: 100%;
-    height: auto;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    cursor: crosshair;
-    transition: border-color 0.2s;
-
-    &:hover {
-      border-color: #0056b3;
-    }
-  }
-
-  .map-controls {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    font-size: 1rem;
-    color: #555;
-    gap: 1rem;
-    margin-top: 0.5rem;
   }
 }
 
