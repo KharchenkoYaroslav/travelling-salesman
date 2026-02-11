@@ -8,7 +8,7 @@
     "@nestjs/common": "^11.1.11",
     "@nestjs/core": "^11.1.11",
     "@nestjs/platform-express": "^11.1.11",
-    "axios": "^1.13.2",
+    "axios": "^1.13.5",
     "event-source-polyfill": "^1.0.31",
     "react": "19.2.3",
     "react-dom": "19.2.3",
